@@ -1,0 +1,170 @@
+unit u_ini2;
+{
+Project Description -
+
+Project on INI file , In this project you have to sort the csv file in txt file;
+
+Guided By :-
+Raja Sir
+}
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, IniFiles;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Label1: TLabel;
+    Button3: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+// Creating Function to Simplify INI file .
+
+function sortIni(var filename1 , filename2 : string): Boolean;
+var                                                                   // declaring all variables names with its data types
+  Country_Name, State_Name, City_Name: string;
+  csv: TextFile;
+  ini: TIniFile;
+  Row_Data, name_State, name_Country, name_City: string;
+  i, Country_Count, State_Count, City_Count, comma: Integer;
+begin
+  try                                                            // initialising all variables names with its data types
+    try
+      comma := 0;
+      Result := True;
+      Country_Count := 1;
+      State_Count := 1;
+      City_Count := 1;
+      Country_Name := '';
+      State_Name := '';
+      City_Name := '';
+      name_State := '';
+      name_Country := '';
+      name_City := '';
+
+      AssignFile(csv, filename1);
+      Reset(csv);
+      ini := TIniFile.Create(filename2);
+
+      while not Eof(csv) do
+      begin
+        ReadLn(csv, Row_Data);
+
+        for i := 0 to Length(Row_Data) do
+        begin
+          if Row_Data[i] = ',' then                              // check and increment comma count variable
+            Inc(comma);
+
+          if comma = 2 then                                    // check condition and store the name of the country in name_Country variable
+          begin
+            if (Row_Data[i] = ',') or (Row_Data[i] = '"') then
+              Continue;
+            name_Country := name_Country + Row_Data[i];
+          end;
+
+          if comma = 4 then                                                 // check condition and store the name of the country in name_State variable
+          begin
+            if (Row_Data[i] = ',') or (Row_Data[i] = '"') then
+              Continue;
+            name_State := name_State + Row_Data[i];
+          end;
+
+          if comma = 5 then                                                // check condition and store the name of the country in name_city variable
+          begin
+            if (Row_Data[i] = ',') or (Row_Data[i] = '"') then
+              Continue;
+            name_City := name_City + Row_Data[i];
+          end;
+
+        end;
+        comma := 0;                    // getting memory free
+
+
+        if Country_Name <> name_Country then
+        begin
+          State_Count := 1;
+          Country_Name := name_Country;
+          ini.WriteString('Countries', IntToStr(Country_Count), name_Country);
+          Inc(Country_Count);
+        end;
+
+        if State_Name <> name_State then
+        begin
+          City_Count := 1;
+          State_Name := name_State;
+          ini.WriteString(name_Country + '-states', IntToStr(State_Count), name_State);
+          Inc(State_Count);
+        end;
+
+        ini.WriteInteger(name_State + '-cities', name_City, City_Count - 1);
+        Inc(City_Count);
+        name_State := '';
+        name_Country := '';
+        name_City := '';
+
+      end;
+
+    finally
+      try
+        CloseFile(csv);
+        try
+          ini.Free;
+        except
+          on E: Exception do
+            Result := False;
+        end;
+      except
+        on E: Exception do
+          Result := False;
+      end;
+    end;
+  except
+    on E: Exception do
+      Result := False;
+  end;
+end;
+
+// Button click event to call user defined function
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  filename1 : string;
+  filename2 : string;
+begin
+
+filename1 := 'C:\Users\PT-sumit\Desktop\rakshit_delphi\final\ProjectINI2Final_1\IP2LOCATION-COUNTRY-REGION-CITY.csv';
+filename2 := 'C:\Users\PT-sumit\Desktop\rakshit_delphi\final\ProjectINI2Final_1\sortedWorldList.ini';
+
+  try
+    if sortIni(filename1 , filename2) then                           // calling function
+      ShowMessage('csv file successfully transformed')
+    else
+      ShowMessage('csv file not transformed');
+  except
+    on E: Exception do
+      ShowMessage(E.Message);
+  end;
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+  Self.Close;
+end;
+
+end.
+
