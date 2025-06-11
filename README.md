@@ -1,7 +1,7 @@
 # Hello, I'm Rakshit 👋
 
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&duration=2800&pause=2000&color=000000&center=true&vCenter=true&width=940&lines=Software+Developer;Full-Stack+Developer;Problem+Solver" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&duration=2800&pause=2000&color=2F81F7&center=true&vCenter=true&width=940&lines=Software+Developer;Full-Stack+Developer;Problem+Solver" alt="Typing SVG" />
 </div>
 
 <div align="center">
