@@ -130,9 +130,3 @@ I'm always interested in discussing **technology**, **architecture decisions**, 
   ![Visitor Count](https://komarev.com/ghpvc/?username=rakshit-roshan&style=for-the-badge&color=blueviolet)
   
 </div>
-
----
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake-dark.svg" alt="Snake animation" />
-</div>
