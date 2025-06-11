@@ -1,16 +1,27 @@
-## Hi there 👋
+<h1 align="center">Hi, I'm Rakshit 👋</h1>
 
-<!--
-**rakshit-roshan/rakshit-roshan** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<p align="center">
+  <strong>Developer | Systems Thinker | Problem Solver</strong><br/>
+  <em>Building software with speed, precision, and purpose</em>
+</p>
 
-Here are some ideas to get you started:
+---
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### 👨‍💻 About Me
+
+- 💼 Software Engineer passionate about building scalable, intelligent systems.
+- 🧠 Focused on **AI integration**, **system design**, and **performance-driven backend**.
+- 🛠️ Experienced with **Delphi**, **Spring Boot**, **React.js**, **Python**, and **MySQL**.
+- 🎯 Always striving for simplicity, clarity, and impact in code and design.
+- 📍 Based in India | Open to remote collaboration
+
+---
+
+### 🧰 Tech Stack
+
+```yaml
+Backend:   Java (Spring Boot), Python (FastAPI), Delphi 7
+Frontend:  React.js, Tailwind CSS, HTML, JavaScript
+Database:  MySQL, SQLite, ChromaDB
+AI Tools:  OpenAI, Gemini, Sentence Transformers
+Tooling:   Git, Postman, VSCode, Figma, Docker
